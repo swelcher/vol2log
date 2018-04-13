@@ -2,12 +2,16 @@
 
 ## Summary
 
-**This utility is to assist with shipping a JSON file into Graylog with the appropriate formatting. Here is a sample usage:**
+This utility is to assist with shipping a Volatility JSON file into Graylog with the appropriate formatting easily. I was unaware of a way to easily ship the JSON file from Volatility's unified-output plugin so I created a small utility which will format, add additional needed fields to the post, and send a post request to a specified Graylog instance.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## Usage
 
     python vol2log.py -host 192.168.119.133 -port 12201 -jsonFile "C:\Python\Data\Volatility JSON Files\netscan.json" -plugin netscan -volHost infectedhost
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-###Required Switches
+## Required Switches
 
   -host \<IP address of remote Graylog Instance.\>
   
@@ -21,7 +25,7 @@
   
   ----------------------------------------------------------------------------------------------------------------------------------------
   
-**These are additional features that I intend on implementing in the future and will add those as issues as well**
+## Future Features
 
   -Require naming convention of file name of host.plugin.json to auto-populate plugin and make volHost and plugin optional switches.
   
@@ -29,4 +33,8 @@
   
   -Create a list of known issues with certain plugins as not all plugins produce data that is usable in this format.
     i.e malfind's output
+    
+  -Commenting the code.(Sorry in advance)
+  
+  -Troubleshoot some of the formatting for certain output's. I'm also aware of there is an issue with netscan's formatting of the time field when sending to Graylog.
   
