@@ -1,11 +1,11 @@
 # vol2log
 
-<b>This utility is to assist with shipping a JSON file into Graylog with the appropriate formatting. Here is a sample usage:<b>
+**This utility is to assist with shipping a JSON file into Graylog with the appropriate formatting. Here is a sample usage:**
 
     python vol2log.py -host 192.168.119.133 -port 12201 -jsonFile "C:\Python\Data\Volatility JSON Files\netscan.json" -plugin netscan -volHost infectedhost
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-<b>There are 5 required switches with are:
+**There are 5 required switches with are:**
 
   -host \<IP address of remote Graylog Instance.\>
   
@@ -19,7 +19,7 @@
   
   ----------------------------------------------------------------------------------------------------------------------------------------
   
-<b>These are additional features that I intend on implementing in the future and will add those as issues as well.
+**These are additional features that I intend on implementing in the future and will add those as issues as well**
 
   -Require naming convention of file name of host.plugin.json to auto-populate plugin and make volHost and plugin optional switches.
   
