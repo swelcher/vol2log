@@ -17,9 +17,12 @@ There are 5 required switches with are:
   -jsonFile \<File path to jsonFile\.>
   
   
-There are additional features that I intend on implementing in the future and will add those as issues as well. 
+There are additional features that I intend on implementing in the future and will add those as issues as well.
+
   -Require naming convention of file name of host.plugin.json to auto-populate plugin and make volHost and plugin optional switches.
+  
   -Be able to handle large quantities of JSON files.
+  
   -Create a list of known issues with certain plugins as not all plugins produce data that is usable in this format.
     i.e malfind's output
   
