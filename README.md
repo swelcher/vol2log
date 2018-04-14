@@ -36,5 +36,5 @@ This utility is to assist with shipping a Volatility JSON file into Graylog with
     
   -Commenting the code.(Sorry in advance)
   
-  -Troubleshoot some of the formatting for certain output's. I'm also aware of there is an issue with netscan's formatting of the time field when sending to Graylog.
+  -Troubleshoot some of the formatting for certain output's. 
   
