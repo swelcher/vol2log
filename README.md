@@ -2,7 +2,7 @@
 
 ## Summary
 
-This utility is to assist with shipping a Volatility JSON file into Graylog with the appropriate formatting easily. I was unaware of a way to easily ship the JSON file from Volatility's unified-output plugin so I created a small utility which will format, add additional needed fields to the post, and send a post request to a specified Graylog instance.
+This utility built upon python 3.6 is to assist with shipping a Volatility JSON file into Graylog with the appropriate formatting easily. I was unaware of a way to easily ship the JSON file from Volatility's unified-output plugin so I created a small utility which will format, add additional needed fields to the post, and send a post request to a specified Graylog instance.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
