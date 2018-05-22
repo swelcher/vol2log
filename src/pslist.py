@@ -1,7 +1,7 @@
 import json
 import urllib.request
-from compare import enumerate_dict
-from compare import enumerate_dict_ppid
+from src.compare import enumerate_dict
+from src.compare import enumerate_dict_ppid
 
 
 def pslist_threat(json_file, vol_host, url):

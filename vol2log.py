@@ -1,7 +1,7 @@
 import json
 import urllib.request
 import argparse
-from pslist import pslist_threat
+from src.pslist import pslist_threat
 parser = argparse.ArgumentParser()
 try:
         # Generate Graylog Host Commandline Parameter
