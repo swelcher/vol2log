@@ -33,8 +33,3 @@ This utility built upon Python 3.6 is to assist with shipping a Volatility JSON 
   
   -Create a list of known issues with certain plugins as not all plugins produce data that is usable in this format.
     i.e malfind's output
-    
-  -Commenting the code.(Sorry in advance)
-  
-  -Troubleshoot some of the formatting for certain output's. 
-  
