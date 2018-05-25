@@ -36,16 +36,15 @@ try:
 			volFile = json.load(file)
 			for row in volFile['rows']:
 				dictionary = {}
-			for key, value in zip(volFile['columns'], row):
-				dictionary[key] = value
-			print(dictionary)
-			dictionary["short_message"] = "true"
-			dictionary["host"] = str(vol_host)
-			dictionary["plugin"] = str(plugin)
-			response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
-			print(response.read())
+				for key, value in zip(volFile['columns'], row):
+					dictionary[key] = value
+				print(dictionary)
+				dictionary["short_message"] = "true"
+				dictionary["host"] = str(vol_host)
+				dictionary["plugin"] = str(plugin)
+				response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
+				print(response.read())
 # Error Handling
-			print("PSLIST")
 
 except Exception as e:
 	message = str(e)

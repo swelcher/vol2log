@@ -74,7 +74,7 @@ def pslist_threat(json_file, vol_host, url):
 				dictionary["PotentiallyMaliciousProcess"] = "True"
 			elif process_name == "system" and len(system_pid) > 1:
 				dictionary["PotentiallyMaliciousProcess"] = "True"
-			elif process_name == "winlogon.exe" and len(explorer_pid) == len(winlogon_pid):
+			elif process_name == "winlogon.exe" and len(explorer_pid) != len(winlogon_pid):
 				dictionary["PotentiallyMaliciousProcess"] = "True"
 		    # If enabling this check below, it is possible for false positives, due to the initial initialization of
 		    # csrss and exiting of the first process.
