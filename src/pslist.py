@@ -58,39 +58,39 @@ def pslist_threat(json_file, vol_host, url):
 			dictionary = {}
 			for key, value in zip(vol_file['columns'], row):
 				dictionary[key] = value
-		process_name = enumerate_dict(dictionary).lower()
-		ppid_name = enumerate_dict_ppid(dictionary)
-		if process_name == "lsass.exe" and (ppid_name not in wininit_pid or len(lsass_pid) > 1):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "wininit.exe" and (ppid_name not in wininit_pid or len(wininit_pid) > 1):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "svchost.exe" and (ppid_name not in services_pid):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "services.exe" and (ppid_name not in wininit_pid):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "lsm.exe" and (ppid_name not in wininit_pid or len(lsm_pid) > 1):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "smss.exe" and (ppid_name not in system_pid or len(smss_pid) > 1):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif process_name == "system" and len(system_pid) > 1:
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-		elif len(explorer_pid) == len(winlogon_pid):
-			dictionary["PotentiallyMaliciousProcess"] = "True"
-            # If enabling this check below, it is possible for false positives, due to the initial initialization of
-            # csrss and exiting of the first process.
-            # elif process_name == "csrss.exe" and (ppid_name not in smss_pid or len(csrss_pid) > 1):
-            #    dictionary["PotentiallyMaliciousProcess"] = "True"
+			process_name = enumerate_dict(dictionary).lower()
+			ppid_name = enumerate_dict_ppid(dictionary)
+			if process_name == "lsass.exe" and (ppid_name not in wininit_pid or len(lsass_pid) > 1):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "wininit.exe" and (ppid_name not in wininit_pid or len(wininit_pid) > 1):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "svchost.exe" and (ppid_name not in services_pid):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "services.exe" and (ppid_name not in wininit_pid):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "lsm.exe" and (ppid_name not in wininit_pid or len(lsm_pid) > 1):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "smss.exe" and (ppid_name not in system_pid or len(smss_pid) > 1):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "system" and len(system_pid) > 1:
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+			elif process_name == "winlogon.exe" and len(explorer_pid) == len(winlogon_pid):
+				dictionary["PotentiallyMaliciousProcess"] = "True"
+		    # If enabling this check below, it is possible for false positives, due to the initial initialization of
+		    # csrss and exiting of the first process.
+		    # elif process_name == "csrss.exe" and (ppid_name not in smss_pid or len(csrss_pid) > 1):
+		    #    dictionary["PotentiallyMaliciousProcess"] = "True"
 
-            # Creation of required field for Graylog
-		dictionary["short_message"] = "true"
-            # Creation of analyzed host field
-		dictionary["host"] = str(vol_host)
-            # Creation of plugin field
-		dictionary["plugin"] = "pslist"
-            # Creation of post to Graylog
-		response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
-            # Post to Graylog.
-		print(response.read())
+		    # Creation of required field for Graylog
+			dictionary["short_message"] = "true"
+		    # Creation of analyzed host field
+			dictionary["host"] = str(vol_host)
+		    # Creation of plugin field
+			dictionary["plugin"] = "pslist"
+		    # Creation of post to Graylog
+			response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
+		    # Post to Graylog.
+			print(response.read())
 
 
 
