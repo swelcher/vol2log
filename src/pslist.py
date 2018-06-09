@@ -19,7 +19,7 @@ def pslist_threat(json_file, vol_host, url):
 	explorer_pid = []
 	csrss_pid = []
 	
-	typical_services = ["winlogon.exe", "wininit.exe", "services.exe", "explorer.exe", "lsm.exe", "csrss.exe", "lsass.exe", "smss.exe", "rdpclip.exe", "System", "iexplore.exe", "dllhost.exe", "rundll32.exe", "WmiPrvSE.exe", "conhost.exe", "regsvr32.exe", "dwm.exe", "WUDFHost.exe", "LogonUI.exe", "mobsync.exe", "wmdcBase.exe.exe", "unsecapp.exe", "audiodg.exe", "chrome.exe", "firefox.exe", "MicrosoftEdge.exe", "audiodg.exe", "Calculator.exe", "OUTLOOK.EXE", "POWERPNT.EXE", "EXCEL.EXE", "MSACCESS.EXE", "onenoteim.exe", "WINWORD.EXE", "OfficeClickToRun.exe", "Taskmgr.exe", "mmc.exe", "7zFM.exe", "cmd.exe", "powershell.exe", "powershell_ise.exe", "notepad++.exe", "OneDrive.exe", "RuntimeBroker.exe", "SearchUI.exe", "audiodg.exe", "SearchIndexer.exe", "sppsvc.exe", "WmiApSrv.exe", "wifitask.exe", "mobsync.exe", "ngen.exe", "AcroRd32.exe", "AcroCEF.exe", "Creative Cloud.exe", "EMET_Service.exe", "slack.exe", "System Idle Process", "System interrupts", "unsecapp.exe", "svchost.exe"] 
+	typical_services = ["winlogon.exe", "wininit.exe", "services.exe", "explorer.exe", "lsm.exe", "csrss.exe", "lsass.exe", "smss.exe", "rdpclip.exe", "system", "iexplore.exe", "dllhost.exe", "rundll32.exe", "wmiprvse.exe", "connhost.exe", "regsvr32.exe", "dwm.exe", "wudfhost.exe", "logonui.exe", "mobsync.exe", "wmdcbase.exe.exe", "unsecapp.exe", "audiodg.exe", "chrome.exe", "firefox.exe", "microsoftedge.exe", "audiodg.exe", "calculator.exe", "outlook.exe", "powerpnt.exe", "excel.exe", "msaccess.exe", "onenoteim.exe", "winword.exe", "officeclicktorun.exe", "taskmgr.exe", "mmc.exe", "7zfm.exe", "cmd.exe", "powershell.exe", "powershell_ise.exe", "notepad++.exe", "onedrive.exe", "runtimebroker.exe", "searchui.exe", "audiodg.exe", "searchindexer.exe", "sppsvc.exe", "wmiApsrv.exe", "wifitask.exe", "mobsync.exe", "ngen.exe", "acrord32.exe", "acrocef.exe", "creative cloud.exe", "emet_service.exe", "slack.exe", "system idle process", "system interrupts", "unsecapp.exe", "svchost.exe"] 
 
 	# Initial Analysis of JSON File
 	with open(json_file) as file:
@@ -79,7 +79,7 @@ def pslist_threat(json_file, vol_host, url):
 			elif process_name == "winlogon.exe" and len(explorer_pid) != len(winlogon_pid):
 				dictionary["PotentiallyMaliciousProcess"] = "True"
 
-			if process_name in typical_services:
+			if process_name.lower() in typical_services:
 				dictionary["TypicalServices"] = "True"
 			else:
 				dictionary["TypicalServices"] = "False"
