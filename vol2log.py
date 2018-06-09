@@ -1,8 +1,8 @@
 import json
-import urllib.request
 import argparse
 from src.pslist import pslist_threat
 from src.getsids import getsids
+from src.jsonpost import jsonpost
 
 
 parser = argparse.ArgumentParser()
@@ -43,12 +43,8 @@ try:
 				dictionary = {}
 				for key, value in zip(volFile['columns'], row):
 					dictionary[key] = value
-				dictionary["short_message"] = "true"
-				dictionary["host"] = str(vol_host)
 				dictionary["plugin"] = str(plugin)
-				response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
-				print(response.read())
-				print(dictionary)
+				jsonpost(vol_host, url, dictionary)
 # Error Handling
 
 except Exception as e:

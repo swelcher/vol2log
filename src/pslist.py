@@ -1,7 +1,7 @@
 import json
-import urllib.request
 from src.compare import enumerate_dict
 from src.compare import enumerate_dict_ppid
+from src.jsonpost import jsonpost
 
 
 def pslist_threat(json_file, vol_host, url):
@@ -88,18 +88,9 @@ def pslist_threat(json_file, vol_host, url):
 		    # elif process_name == "csrss.exe" and (ppid_name not in smss_pid or len(csrss_pid) > 1):
 		    #    dictionary["PotentiallyMaliciousProcess"] = "True"
 
-		    # Creation of required field for Graylog
-			dictionary["short_message"] = "true"
-		    # Creation of analyzed host field
-			dictionary["host"] = str(vol_host)
-		    # Creation of plugin field
 			dictionary["plugin"] = "pslist"
 			print(dictionary)
-		    # Creation of post to Graylog
-			response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
-		    # Post to Graylog.
-			print(response.read())
-
+			jsonpost(vol_host, url, dictionary)	
 
 
 
