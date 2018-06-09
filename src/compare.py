@@ -7,12 +7,12 @@ def enumerate_dict(analyze_dictionary):
 
 def enumerate_dict_ppid(analyze_dictionary):
 	for key, value in analyze_dictionary.items():
-		if key == "PPID":
+		if key.upper() == "PPID":
 			return value
 
 def enumerate_dict_pid(analyze_dictionary):
 	for key, value in analyze_dictionary.items():
-		if key == "PID":
+		if key.upper() == "PID":
 			return value
 
 def enumerate_dict_path(analyze_dictionary):

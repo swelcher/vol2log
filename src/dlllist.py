@@ -18,7 +18,7 @@ def dlllist(json_file, vol_host, url):
 					dictionary[key] = value
 
 				pid = enumerate_dict_pid(dictionary)
-				if pid not in process_id:
+				if pid not in process_id_check:
 					image = enumerate_dict_path(dictionary)		
 					process_id[pid] = image
 					process_id_check.append(pid)
