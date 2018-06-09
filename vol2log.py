@@ -15,7 +15,7 @@ try:
 			    help="Enter JSON file to send to Graylog", required=True)
 	# Generate Volatility Plugin Commandline Parameter
 	parser.add_argument("-plugin", action='store', dest='plugin',
-			    help="Enter Volatility Plugin", required=True, choices=["pslist", "netscan", "dlllist"])
+			    help="Enter Volatility Plugin", required=True, choices=["pslist", "netscan", "dlllist", "getsids","userassist"])
 	# Generate Analyzed Host Commandline Parameter
 	parser.add_argument("-volhost", action='store', dest='vol_host',
 			    help="Enter Memory dump Source Name or IP", required=True)
