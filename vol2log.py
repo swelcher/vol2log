@@ -40,62 +40,8 @@ try:
 	else:
 		generic_analysis(json_file, vol_host, plugin, url)	
 	
-	
-	
-	
-	
-	
-	
 # Error Handling
 
 except Exception as e:
 	message = str(e)
 	print(message)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
