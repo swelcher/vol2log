@@ -19,3 +19,8 @@ def enumerate_dict_path(analyze_dictionary):
         for key, value in analyze_dictionary.items():
                 if key == "Path":
                         return value
+
+def enumerate_image(analyze_dictionary, pid):
+	for key, value in analyze_dictionary.items():
+		if key == pid:
+			return value

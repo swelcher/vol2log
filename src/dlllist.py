@@ -2,11 +2,13 @@ import json
 from src.jsonpost import jsonpost
 from src.compare import enumerate_dict_pid
 from src.compare import enumerate_dict_path
+from src.compare import enumerate_image
 
 
 def dlllist(json_file, vol_host, url):
 
-	process_id = []
+	process_id_check = []
+	process_id = {}
 
 	with open(json_file) as file:
 			vol_file = json.load(file)
@@ -17,13 +19,15 @@ def dlllist(json_file, vol_host, url):
 
 				pid = enumerate_dict_pid(dictionary)
 				if pid not in process_id:
-					process_id.append(pid)
+					image = enumerate_dict_path(dictionary)		
+					process_id[pid] = image
+					process_id_check.append(pid)
 					dictionary["Image"] = "True"
 					dictionary["plugin"] = "dlllist"
 					jsonpost(vol_host, url, dictionary)
 
 				else:
-					image = enumerate_dict_path(dictionary)	
+					image = enumerate_image(process_id, pid)	
 					dictionary["ParentImage"] = image
 					dictionary["plugin"] = "dlllist"
 					jsonpost(vol_host, url, dictionary)
