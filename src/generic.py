@@ -2,7 +2,7 @@ import json
 from src.jsonpost import jsonpost
 
 
-def generic_analysis(json_file, vol_host, url):
+def generic_analysis(json_file, vol_host, plugin, url):
 
 	with open(json_file) as file:
 		volFile = json.load(file)

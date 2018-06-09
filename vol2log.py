@@ -38,7 +38,7 @@ try:
 	elif plugin == "getsids":
 		getsids(json_file, vol_host, url)	
 	else:
-		generic_analysis(json_file, vol_host, url)	
+		generic_analysis(json_file, vol_host, plugin, url)	
 	
 	
 	
