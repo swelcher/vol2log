@@ -15,7 +15,7 @@ def enumerate_dict_pid(analyze_dictionary):
 		if key == "PID":
 			return value
 
-def enumerate_dict_name(analyze_dictionary):
+def enumerate_dict_path(analyze_dictionary):
         for key, value in analyze_dictionary.items():
-                if key == "Name":
+                if key == "Path":
                         return value

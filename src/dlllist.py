@@ -1,23 +1,12 @@
 import json
 from src.jsonpost import jsonpost
 from src.compare import enumerate_dict_pid
-from src.compare import enumerate_dict_name
+from src.compare import enumerate_dict_path
 
 
 def dlllist(json_file, vol_host, url):
 
 	process_id = []
-	
-
-	# Initial Analysis of JSON File
-	with open(json_file) as file:
-		vol_file = json.load(file)
-		for row in vol_file['rows']:
-			analyzedictionary = {}
-			for key, value in zip(vol_file['columns'], row):
-				analyzedictionary[key] = value
-            # Call to enumerate_dict Function. Located in src.
-			process_name = enumerate_dict(analyzedictionary).lower()
 
 	with open(json_file) as file:
 			vol_file = json.load(file)
@@ -29,12 +18,12 @@ def dlllist(json_file, vol_host, url):
 				pid = enumerate_dict_pid(dictionary)
 				if pid not in process_id:
 					process_id.append(pid)
-					dictionary["Executable"] = "True"
+					dictionary["Image"] = "True"
 					dictionary["plugin"] = "dlllist"
 					jsonpost(vol_host, url, dictionary)
 
 				else:
-					executable_name = enumerate_dict_name(dictionary)	
-					dictionary["ParentExecutable"] = executable_name
+					image = enumerate_dict_path(dictionary)	
+					dictionary["ParentImage"] = image
 					dictionary["plugin"] = "dlllist"
 					jsonpost(vol_host, url, dictionary)
