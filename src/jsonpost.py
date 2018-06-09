@@ -1,6 +1,7 @@
 import json
 import urllib.request
 
+
 def jsonpost(vol_host, url, dictionary):
 	# Creation of required field for Graylog
 	dictionary["short_message"] = "true"
