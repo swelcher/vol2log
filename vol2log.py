@@ -31,6 +31,8 @@ try:
 	# Analysis of plugin parameter
 	if plugin == "pslist":
 		pslist_threat(json_file, vol_host, url)
+	elif plugin == "getsids":
+		getsids(json_file, vol_host, url)	
 	else:
 		with open(json_file) as file:
 			volFile = json.load(file)

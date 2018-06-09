@@ -9,3 +9,8 @@ def enumerate_dict_ppid(analyze_dictionary):
 	for key, value in analyze_dictionary.items():
 		if key == "PPID":
 			return value
+
+def enumerate_dict_pid(analyze_dictionary):
+	for key, value in analyze_dictionary.items():
+		if key == "PID":
+			return value
