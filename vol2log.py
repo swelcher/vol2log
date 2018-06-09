@@ -4,6 +4,7 @@ from src.pslist import pslist_threat
 from src.getsids import getsids
 from src.jsonpost import jsonpost
 from src.generic import generic_analysis
+from src.dlllist import dlllist
 
 
 parser = argparse.ArgumentParser()
@@ -37,6 +38,8 @@ try:
 		pslist_threat(json_file, vol_host, url)
 	elif plugin == "getsids":
 		getsids(json_file, vol_host, url)	
+	elif plugin == "dlllist":
+		dlllist(json_file, vol_host, url)
 	else:
 		generic_analysis(json_file, vol_host, plugin, url)	
 	
