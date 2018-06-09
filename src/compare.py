@@ -14,3 +14,8 @@ def enumerate_dict_pid(analyze_dictionary):
 	for key, value in analyze_dictionary.items():
 		if key == "PID":
 			return value
+
+def enumerate_dict_name(analyze_dictionary):
+        for key, value in analyze_dictionary.items():
+                if key == "Name":
+                        return value
