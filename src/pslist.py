@@ -94,6 +94,7 @@ def pslist_threat(json_file, vol_host, url):
 			dictionary["host"] = str(vol_host)
 		    # Creation of plugin field
 			dictionary["plugin"] = "pslist"
+			print(dictionary)
 		    # Creation of post to Graylog
 			response = urllib.request.urlopen(url, data=bytes(json.dumps(dictionary), encoding="utf-8"))
 		    # Post to Graylog.
