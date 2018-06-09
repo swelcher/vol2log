@@ -1,5 +1,5 @@
 from src.jsonpost import jsonpost
-from src.compary import enumerate_pid
+from src.compare import enumerate_dict_pid
 
 
 def getsids(json_file, vol_host, url):
@@ -13,7 +13,7 @@ def getsids(json_file, vol_host, url):
 				for key, value in zip(vol_file['columns'], row):
 					dictionary[key] = value
 
-				pid = enumerate_pid(dictionary)
+				pid = enumerate_dict_pid(dictionary)
 				if pid not in process_id:
 					process_id.append(pid)
 					dictionary["plugin"] = "getsids"
