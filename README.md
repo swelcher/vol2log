@@ -8,7 +8,7 @@ This utility built upon Python 3.6 is to assist with shipping a Volatility JSON 
 
 ## Usage
 
-    python vol2log.py -host 192.168.119.133 -port 12201 -jsonFile "C:\Python\Data\Volatility JSON Files\netscan.json" -plugin netscan -volHost infectedhost
+    python vol2log.py -host 192.168.119.133 -port 12201 -file "C:\Python\Data\Volatility JSON Files\netscan.json" -plugin netscan -volhost infectedhost
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Required Switches
@@ -19,9 +19,9 @@ This utility built upon Python 3.6 is to assist with shipping a Volatility JSON 
   
   -plugin \<Name of volatility plugin that was used for JSON file.\>
   
-  -volHost \<Name or IP address of the src of the analyzed memory dump.\>
+  -volhost \<Name or IP address of the src of the analyzed memory dump.\>
   
-  -jsonFile \<File path to jsonFile\.>
+  -file \<File path to jsonFile\.>
   
   ----------------------------------------------------------------------------------------------------------------------------------------
   
